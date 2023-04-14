@@ -1,14 +1,23 @@
 import React from 'react'
-import './categories.styles.scss'
-import CategoryMenu from './components/category-menu/CategoryMenu'
-import categories from './menuItems'
+import { Routes, Route } from 'react-router-dom';
+import Contact from './routes/contact/Contact.js';
+import Home from './routes/home/home.components.jsx'
+import Navigation from './routes/navigation/navigation.component.jsx';
+import Shop from './routes/shop/Shop.js';
+import SignIn from './routes/sign-in/SignIn.js';
+
 
 const App = () => {
 
   return (
-    <div>
-      <CategoryMenu categories={categories}/>
-    </div>
+    <Routes>
+      <Route path='/' element={<Navigation />} >
+        <Route index element={<Home />}/>
+        <Route path='/sign-in' element={<SignIn />}/>
+        <Route path='/shop' element={<Shop />} />
+        <Route path='/contact' element={<Contact />} />
+      </Route>
+    </Routes>
   )
 }
 
